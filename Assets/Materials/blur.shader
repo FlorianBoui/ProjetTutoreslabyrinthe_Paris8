@@ -37,7 +37,7 @@
 
 
 
-			float4 fragCocMedian3x3 (v2f i) : SV_Target
+			float4 fragblur5x5 (v2f i) : SV_Target
 			{
 					half4 center = tex2Dlod(_MainTex, half4(i.uv + half2(0, 0) * _MainTex_TexelSize.xy,0,0));
 					half4 result = (0.0,0.0,0.0,0.0);
@@ -53,7 +53,7 @@
 					result.rgb += tex2Dlod(_MainTex, half4(i.uv + half2(-1, 2) * _MainTex_TexelSize.xy,0,0)).rgb;
 					result.rgb += tex2Dlod(_MainTex, half4(i.uv + half2(0, -2) * _MainTex_TexelSize.xy,0,0)).rgb;
 					result.rgb += tex2Dlod(_MainTex, half4(i.uv + half2(0, -1) * _MainTex_TexelSize.xy,0,0)).rgb;
-					result.rgb += (center.rgb * 0.8);
+					result.rgb += (center.rgb * 0.2);
 					result.rgb += tex2Dlod(_MainTex, half4(i.uv + half2(0, 1) * _MainTex_TexelSize.xy,0,0)).rgb;
 					result.rgb += tex2Dlod(_MainTex, half4(i.uv + half2(0, 2) * _MainTex_TexelSize.xy,0,0)).rgb;
 					result.rgb += tex2Dlod(_MainTex, half4(i.uv + half2(1, -2) * _MainTex_TexelSize.xy,0,0)).rgb;
@@ -76,7 +76,7 @@
 		Pass{
         CGPROGRAM
         #pragma vertex vert
-        #pragma fragment fragCocMedian3x3
+        #pragma fragment fragblur5x5
         ENDCG
         
 		}
