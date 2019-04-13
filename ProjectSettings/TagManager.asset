@@ -3,7 +3,19 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Door_C
+  - Table_top
+  - piece0
+  - piece1
+  - piece2
+  - piece3
+  - piece4
+  - piece5
+  - piece6
+  - piece7
+  - piece8
+  - Door_B
   layers:
   - Default
   - TransparentFX
@@ -13,7 +25,7 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
+  - 
   - 
   - 
   - 

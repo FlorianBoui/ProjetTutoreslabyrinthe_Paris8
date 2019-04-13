@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
     public float gravity = 20.0f;
 
 
+
     void Start()
     {
         rb = GetComponent<CharacterController>();
@@ -18,13 +19,17 @@ public class PlayerController : MonoBehaviour {
     void Update()
     {
 
-        movement = new Vector3(0.0f,0.0f , Input.GetAxis("Vertical"));
-        movement = transform.TransformDirection(movement);
-        movement *= speed;
-        rb.Move(movement * Time.deltaTime);
-        movement.y -= gravity * Time.deltaTime;
-        transform.Rotate(Vector3.up * Input.GetAxis("Horizontal") * Time.deltaTime * speed * 50);
-        rb.Move(movement * Time.deltaTime);
+        if (GetComponent<Opendoor>().inRoom == false)
+        {
+            movement = new Vector3(0.0f, 0.0f, Input.GetAxis("Vertical"));
+            movement = transform.TransformDirection(movement);
+            movement *= speed;
+            rb.Move(movement * Time.deltaTime);
+            movement.y -= gravity * Time.deltaTime;
+            transform.Rotate(Vector3.up * Input.GetAxis("Horizontal") * Time.deltaTime * speed * 50);
+            rb.Move(movement * Time.deltaTime);
+        }
+
     }
 
  }
